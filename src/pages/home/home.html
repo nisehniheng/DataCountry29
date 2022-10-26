@@ -1,17 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+ <ion-navbar color="dark">
+  <ion-title>Home</ion-title>
+ </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-list>
+    <ion-item *ngFor="let c of countries">
+      <ion-avatar item-left>
+        <img src="{{c.flags[0]}}">
+      </ion-avatar>
+      <h2>{{c.name.common}}</h2>
+      <p><b>เมือง</b> : {{c.capital}}</p>
+      <p> ทวีป : {{c.region}}</p>
+      <p>จำนวนประชากร : {{ c.population}}</p>
+      <p>พื้นที่ : {{c.latlng}}</p>
+      
+      <p>Google Mapp : <a href="{{ c.maps.googleMaps }}" target="_blank">แผนที่</a></p>
+    </ion-item>
+  </ion-list>
 </ion-content>
